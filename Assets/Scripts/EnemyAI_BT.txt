@@ -1,0 +1,25 @@
+tree("Root")
+	fallback
+		tree "Chase"
+		sequence
+			Not IsMoving
+			PatrolArea
+
+tree "Chase"
+	fallback
+		sequence
+			CanSeePlayer
+			ChasePlayer
+		sequence
+			isAware
+			fallback 
+				IsMoving
+				race
+					sequence
+						Wait 3.0
+						BecomeUnaware
+					repeat
+						Mute 
+							sequence
+								Not IsMoving
+								MustHaveBeenTheWind
